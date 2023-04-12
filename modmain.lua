@@ -106,6 +106,8 @@ function GLOBAL.ARCHERYFUNCS.GenerateSkinAssets(skinname)
   return assets
 end
 
+
+
 ----------------------------------CROSS MOD CHECKS-----------------------------------------------
 
 GLOBAL.ARCHERYPARAMS = {}
@@ -322,7 +324,50 @@ AddClassPostConstruct("widgets/equipslot", EquipSlotPostConstruct)
 
 ------------------------------------- BOW TARGETING -------------------------------------------------------------------
 
+local function OnRPressed(inst)
+    if inst.components.health:GetPercent() < 1 then
+        inst.components.health:DoDelta(20)
+    end
+end
+
+local function OnZPressed(inst)
+    if inst.components.hunger:GetPercent() < 1 then
+        inst.components.hunger:DoDelta(20)
+    end
+end
+
+local function OnXPressed(inst)
+    if inst.components.sanity:GetPercent() < 1 then
+        inst.components.sanity:DoDelta(20)
+    end
+end
+
+local function OnGPressed(inst)
+    if inst.components.sanity:GetPercent() > 0 then
+        inst.components.sanity:DoDelta(-20)
+    end
+end
+
+local function OnUpdate(inst, dt)
+    if TheInput:IsKeyDown(KEY_R) then
+        OnRPressed(inst)
+    elseif TheInput:IsKeyDown(KEY_Z) then
+        OnZPressed(inst)
+    elseif TheInput:IsKeyDown(KEY_X) then
+        OnXPressed(inst)
+    elseif TheInput:IsKeyDown(KEY_G) then
+        OnGPressed(inst)
+    end
+end
+
+AddComponentPostInit("playercontroller", function(self, inst)
+    inst:ListenForEvent("update", function() OnUpdate(inst, .1) end)
+end)
+
 AddComponentPostInit("playercontroller", function(controller)
+
+--inst:ListenForEvent("update", function() OnUpdate(inst, .1) end)
+
     local OrigGetAttackTarget = controller.GetAttackTarget
 
     controller.GetAttackTarget = function(self, force_attack, force_target, isretarget)
@@ -450,7 +495,6 @@ local function bow_attack_useitem(inst, doer, target, actions, right)
   end
 end
 
-
 local function bow_attack_inventory(inst, doer, actions, right)
   local quiver = doer.replica.inventory:GetEquippedItem(EQUIPSLOTS.QUIVER)
   local equiphand = doer.replica.inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
@@ -546,11 +590,20 @@ end
 AddStategraphActionHandler("wilson_client", ActionHandler(ACTIONS.ATTACK, NewClientDestStateATTACK))
 GLOBAL.package.loaded["stategraphs/SGwilson_client"] = nil 
 
+local function OnZPressed(inst)
+    inst.components.health:SetPercent(1)
+end
 
+local function OnKeyDown(inst, data)
+    if data.key == KEY_Z then
+        OnZPressed(inst)
+    end
+end
 
 -------------------------------- RANDOM TEST ----------------------
 
 AddComponentPostInit("playeractionpicker", function(self)
+  self.inst:ListenForEvent("keydown", OnKeyDown)
     local GetLeftClickActionsOld = self.GetLeftClickActions
 
     self.GetLeftClickActions = function(self, position, target)

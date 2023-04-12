@@ -1,8 +1,8 @@
 -- This information tells other players more about the mod
-name = "Makiri"
-description = "一个阔爱的女孩子!"
-author = "polar light&kimi [Fixed by Kirissei]"
-version = "b7.0.171119"
+name = "wikari"
+description = "ayagak"
+author = "ttt"
+version = "b0.0.000015"
 
 forumthread = ""
 
@@ -24,8 +24,330 @@ server_filter_tags = {"weapon", "character","bow"}
 
 priority = 0.000026082015
 
+TrueFalse = {
+	"False", false,
+	"True", true,
+}
+PackOptions = {
+	"None", 0,
+	"Backpack",1,
+	"Piggyback",2,
+	"Insulated Pack",3,
+	"Krampus Sack",4,
+}
+StatOptions = {
+	"50",50,
+	"75",75,
+	"100",100,
+	"125",125,
+	"150",150,
+	"175",175,
+	"200",200,
+	"225",225,
+	"250",250,
+	"275",275,
+	"300",300,
+}
+
+DamagePenaltyOptions = {
+	"Deal No Damage",0,
+	"95% Less",0.05,
+	"90% Less",0.1,
+	"85% Less",0.15,
+	"80% Less",0.2,
+	"75% Less",0.25,
+	"70% Less",0.3,
+	"65% Less",0.35,
+	"60% Less",0.4,
+	"55% Less",0.45,
+	"50% Less",0.50,
+	"45% Less",0.55,
+	"40% Less(Default)",0.6,
+	"35% Less",0.65,
+	"30% Less",0.7,
+	"25% Less",0.75,
+	"20% Less",0.8,
+	"15% Less",0.85,
+	"10% Less",0.9,
+	"5% Less",0.95,
+	"No Change", 1,
+	"5% More",1.05,
+	"10% More",1.1,
+	"15% More",1.15,
+	"20% More",1.2,
+	"25% More",1.25,
+	"30% More",1.3,
+	"35% More",1.35,
+	"40% More",1.4,
+	"45% More",1.45,
+	"50% More",1.50,
+	"55% More",1.55,
+	"60% More",1.6,
+	"65% More",1.65,
+	"70% More",1.7,
+	"75% More",1.75,
+	"80% More",1.8,
+	"85% More",1.85,
+	"90% More",1.9,
+	"95% More",1.95,
+	"Deal 2x Damage",2,
+}
+DamageVulnerabilityOptions = {
+	"Take 2x Damage", 2,
+	"95% Vuln",1.95,
+	"90% Vuln",1.9,
+	"85% Vuln",1.85,
+	"80% Vuln",1.8,
+	"75% Vuln",1.75,
+	"70% Vuln",1.7,
+	"65% Vuln",1.65,
+	"60% Vuln",1.6,
+	"55% Vuln",1.55,
+	"50% Vuln",1.5,
+	"45% Vuln",1.45,
+	"40% Vuln",1.4,
+	"35% Vuln",1.35,
+	"30% Vuln(Default)",1.3,
+	"25% Vuln",1.25,
+	"20% Vuln",1.2,
+	"15% Vuln",1.15,
+	"10% Vuln",1.1,
+	"5% Vuln",1.05,
+	"No Change", 1,
+	"5% Resist",0.95,
+	"10% Resist",0.9,
+	"15% Resist",0.85,
+	"20% Resist",0.8,
+	"25% Resist",0.75,
+	"30% Resist",0.7,
+	"35% Resist",0.65,
+	"40% Resist",0.6,
+	"45% Resist",0.55,
+	"50% Resist",0.5,
+	"55% Resist",0.45,
+	"60% Resist",0.4,
+	"65% Resist",0.45,
+	"70% Resist",0.30,
+	"75% Resist",0.25,
+	"80% Resist",0.2,
+	"85% Resist",0.15,
+	"90% Resist",0.1,
+	"95% Resist",0.05,
+	"Take No Damage",0,
+}
+SpeedOptions = {
+	"-50%", 0.5,
+	"-45%",0.55,
+	"-40%",0.6,
+	"-35%",0.65,
+	"-30%",0.7,
+	"-25%",0.75,
+	"-20%",0.8,
+	"-15%",0.85,
+	"-10%",0.9,
+	"-5%",0.95,
+	"No Change", 1,
+	"+5%",1.05,
+	"+10%",1.1,
+	"+15%",1.15,
+	"+20%",1.2,
+	"+25% (Default)",1.25,
+	"+30%",1.3,
+	"+35%",1.35,
+	"+40%",1.4,
+	"+45%",1.45,
+	"+50%",1.5,
+}
+HungerOptions = {
+	"Double Hunger", 2,
+	"95% Faster",1.95,
+	"90% Faster",1.9,
+	"85% Faster",1.85,
+	"80% Faster",1.8,
+	"75% Faster",1.75,
+	"70% Faster",1.7,
+	"65% Faster",1.65,
+	"60% Faster",1.6,
+	"55% Faster",1.55,
+	"50% Faster",1.5,
+	"45% Faster",1.45,
+	"40% Faster",1.4,
+	"35% Faster",1.35,
+	"30% Faster",1.3,
+	"25% Faster",1.25,
+	"20% Faster",1.2,
+	"15% Faster",1.15,
+	"10% Faster",1.1,
+	"5% Faster",1.05,
+	"No Change", 1,
+	"5% Slower",0.95,
+	"10% Slower",0.9,
+	"15% Slower",0.85,
+	"20% Slower",0.8,
+	"25% Slower",0.75,
+	"30% Slower",0.7,
+	"35% Slower",0.65,
+	"40% Slower",0.6,
+	"45% Slower",0.55,
+	"50% Slower (Default)",0.5,
+	"55% Slower",0.45,
+	"60% Slower",0.4,
+	"65% Slower",0.45,
+	"70% Slower",0.30,
+	"75% Slower",0.25,
+	"80% Slower",0.2,
+	"85% Slower",0.15,
+	"90% Slower",0.1,
+	"95% Slower",0.05,
+	"Doesnt Eat",0,
+}
+
+ChanceOptions1_100 = {
+	"0% (Never)",  0,
+	"5%",  5,
+	"10%",10,
+	"15%",15,
+	"20%",20,
+	"25%",25,
+	"30%",30,
+	"35%",35,
+	"40%",40,
+	"45%",45,
+	"50%",50,
+	"55%",55,
+	"60%",60,
+	"65%",65,
+	"70%",70,
+	"75%",75,
+	"80%",80,
+	"85%",85,
+	"90%",90,
+	"95%",95,
+	"100% (Always)",100,
+}
+TapeOptions = {
+	"None",0,
+	"1",1,
+	"2",2,
+	"3 (Default)",3,
+	"4",4,
+	"5",5,
+	"6",6,
+	"7",7,
+	"8",8,
+	"9",9,
+	"10",10,
+	"15",15,
+	"20",20,
+	"25",25,
+	"30",30,
+	"35",35,
+	"40(Full stack)",40,
+}
+
+function CreateOptions(List)
+	local Options = {}
+	for i=1,#List/2 do
+		Options[i] = {description = List[(i*2)-1],data = List[(i*2)]}
+	end
+	return Options
+end
+
 configuration_options =
 {
+	{
+	label    = "Speed Modifier",
+    name   = "speedmod",
+	hover	= "Change the speed modifier",
+    options = CreateOptions(SpeedOptions),
+    default = 1.25,
+	},{
+	label    = "Hunger Rate",
+    name    = "hungermod",
+	hover	= "What modifiers to the hunger rate",
+    options = CreateOptions(HungerOptions),
+    default = 0.5,
+	},{
+	label    = "Double Pick Chance",
+    name   = "2pickmod",
+	hover	= "Chance for double pick on grass, twigs, ect.",
+    options = CreateOptions(ChanceOptions1_100),
+    default = 100,
+	},{
+	label    = "Triple Pick Chance",
+    name   = "3pickmod",
+	hover	= "Chance for Triple pick, (will override double if succeded)",
+    options = CreateOptions(ChanceOptions1_100),
+    default = 0,
+	},{
+	label    = "Spawn w/ Backpack",
+    name   = "packoption",
+	hover	= "Which Packpack to spawn with, if any.",
+    options = CreateOptions(PackOptions),
+    default = 2,
+	},{
+	label    = "Spawn w/ Lucy",
+    name   = "lucyoption",
+	hover	= "Because of the woodie tag, winona can use Lucy and chop 4x as fast as other characters while using her.",
+    options = CreateOptions(TrueFalse),
+    default = false,
+	},{
+	label    = "Tape ammount",
+    name   = "tapeoption",
+	hover	= "How much tape Winona will spawn with.",
+    options = CreateOptions(TapeOptions),
+    default = 3,
+	},--[[{
+	-- doesnt turn off, even if you dont put the tag on in the first place. its wierd. dont have time to figure it out right now but it'll come later.
+	-- leave a fix in the comments if you have one <3
+	label    = "Woodie Chop Speed",
+    name   = "chopspeedmod",
+	hover	= "Enable/Disable woodies faster woodchopping speed",
+    options = CreateOptions(TrueFalse),
+    default = true,
+	},]]{
+	label    = "Double Tools Power Chance",
+    name   = "2toolpower",
+	hover	= "Chance to do double hit to a tree, rock, ect.",
+    options = CreateOptions(ChanceOptions1_100),
+    default = 100,
+	},{
+	label    = "Triple Tools Power Chance",
+    name   = "3toolpower",
+	hover	= "Chance to do triple hit, (will override double if succeded)",
+    options = CreateOptions(ChanceOptions1_100),
+    default = 0,
+	},{
+	label    = "Damage Delt Changes",
+    name   = "damagedeltmod",
+	hover	= "Chance to do triple hit, (will override double if succeded)",
+    options = CreateOptions(DamagePenaltyOptions),
+    default = 0.6,
+	},{
+	label    = "Damage Taken Changes",
+    name   = "damagetakenmod",
+	hover	= "How much extra damage winona takes",
+    options = CreateOptions(DamageVulnerabilityOptions),
+    default = 1.3,
+	},{
+	label    = "Health",
+    name   = "healthset",
+	hover	= "How much max health to give winona",
+    options = CreateOptions(StatOptions),
+    default = 100,
+	},{
+	label    = "Sanity",
+    name   = "sanityset",
+	hover	= "How much max sanity to give winona",
+    options = CreateOptions(StatOptions),
+    default = 150,
+	},{
+	label    = "Hunger",
+    name   = "hungerset",
+	hover	= "How much max hunger to give winona",
+    options = CreateOptions(StatOptions),
+    default = 100,
+	},
 	{
 		name = "BowUses",
 		label = "Bow Uses",
@@ -44,7 +366,7 @@ configuration_options =
 			{description = "200", data = 200},
 			{description = "Inf.", data = 999},
 		},
-		default = 50,
+		default = 999,
 	},	
 
 	{
@@ -69,9 +391,10 @@ configuration_options =
 			{description = "75", data = 75, hover = "are you serious?!"},
 			{description = "80", data = 80, hover = "are you serious?!!"},
 			{description = "90", data = 90, hover = "use c_godmode() instead"},
+			{description = "300", data = 300, hover = "use c_godmode()2 instead"},
 
 		},
-		default = 27,
+		default = 300,
 	},	
 	
 	{
@@ -94,7 +417,7 @@ configuration_options =
 			{description = "21", data = 21},	
 			{description = "22", data = 22},				
 		},
-		default = 13,
+		default = 22,
 	},	
 	
 	{
@@ -115,7 +438,7 @@ configuration_options =
 			{description = "90%", data = 0.9},
 			{description = "100%", data = 1.0},
 		},
-		default = 0.4,
+		default = 0.1,
 	},	
 	
 	{
@@ -136,7 +459,7 @@ configuration_options =
 			{description = "45%", data = 0.45},
 			{description = "50%", data = 0.50},
 		},
-		default = 0.15,
+		default = 0.05,
 	},	
 	
 	{
@@ -148,7 +471,7 @@ configuration_options =
 			{description = "no", data = false, hover= "Desactivate the reduced hit chance on bees and butterflies"},
 			{description = "yes", data = true, hover= "The hit chance on bees and butterflies is reduced to 1%"},
 		},
-		default = true,
+		default = false,
 	},
 	
 	{
@@ -160,7 +483,7 @@ configuration_options =
 			{description = "no", data = false, hover= "Desactivate the reduced hit chance on flying birds"},
 			{description = "yes", data = true, hover= "The hit chance on flying birds is reduced to 0.5%"},
 		},
-		default = true,
+		default = false,
 	},
 	
 	{
@@ -172,7 +495,7 @@ configuration_options =
 			{description = "yes", data = true},
 			{description = "no", data = false},
 		},
-		default = true,
+		default = false,
 	},	
 	
 	{
@@ -193,7 +516,7 @@ configuration_options =
 			{description = "90%", data = 0.9},
 			{description = "100%", data = 1.0},
 		},
-		default = 0.1,
+		default = 0.7,
 	},	
 	
 	{
@@ -214,7 +537,7 @@ configuration_options =
 			{description = "90%", data = 0.9},
 			{description = "100%", data = 1.0},
 		},
-		default = 0.8,
+		default = 0.9,
 	},	
 	
 	{
@@ -235,7 +558,7 @@ configuration_options =
 			{description = "45%", data = 0.45},
 			{description = "50%", data = 0.5},
 		},
-		default = 0.05,
+		default = 0.4,
 	},	
 	
 	{
@@ -257,7 +580,7 @@ configuration_options =
 			{description = "350%", data = 4.5},
 			{description = "400%", data = 5.0},
 		},
-		default = 2.0,
+		default = 5.0,
 	},
 	
 	{
@@ -357,7 +680,7 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "SCIENCE_ONE",
+		default = "NONE",
 	},	
 
 	{
@@ -493,7 +816,7 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "SCIENCE_ONE",
+		default = "NONE",
 	},	
 	
 	{
@@ -556,7 +879,7 @@ configuration_options =
 			{description = "no", data = false},
 			{description = "yes", data = true},
 		},
-		default = true,
+		default = false,
 	},
 	
 	{
@@ -614,7 +937,7 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "SCIENCE_ONE",
+		default = "NONE",
 	},	
 
 	{
@@ -894,7 +1217,7 @@ configuration_options =
 			{description = "9", data = 9},
 			{description = "10", data = 10},
 		},
-		default = 5,
+		default = 10,
 	},	
 
 	{
@@ -907,7 +1230,7 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "SCIENCE_ONE",
+		default = "NONE",
 	},	
 	
 	{
@@ -988,7 +1311,7 @@ configuration_options =
 			{description = "9", data = 9},
 			{description = "10", data = 10},
 		},
-		default = 5,
+		default = 10,
 	},	
 
 	{
@@ -1127,7 +1450,7 @@ configuration_options =
 			{description = "9", data = 9},
 			{description = "10", data = 10},
 		},
-		default = 1,
+		default = 10,
 	},
 
 	{
@@ -1278,7 +1601,7 @@ configuration_options =
 			{description = "9", data = 9},
 			{description = "10", data = 10},
 		},
-		default = 5,
+		default = 10,
 	},		
 
 		{
@@ -1407,7 +1730,7 @@ configuration_options =
 			{description = "9", data = 9},
 			{description = "10", data = 10},
 		},
-		default = 5,
+		default = 10,
 	},	
 	
 		{
@@ -1549,7 +1872,7 @@ configuration_options =
 			{description = "9", data = 9},
 			{description = "10", data = 10},
 		},
-		default = 5,
+		default = 10,
 	},	
 	
 		{
@@ -1710,7 +2033,7 @@ configuration_options =
 			{description = "9", data = 9},
 			{description = "10", data = 10},
 		},
-		default = 5,
+		default = 10,
 	},	
 	
 	{
@@ -1723,7 +2046,7 @@ configuration_options =
 			{description = "Sc. Mach.", data = "SCIENCE_ONE"},
 			{description = "Alch. Eng.", data = "SCIENCE_TWO"},
 		},
-		default = "SCIENCE_ONE",
+		default = "NONE",
 	},
 	
 	{
@@ -1837,7 +2160,7 @@ configuration_options =
 			{description = "9", data = 9},
 			{description = "10", data = 10},
 		},
-		default = 5,
+		default = 10,
 	},	
 	
 	{
@@ -1852,7 +2175,7 @@ configuration_options =
 			{description = "Prestihat.", data = "MAGIC_TWO"},
 			{description = "Sh. Manip.", data = "MAGIC_THREE"},
 		},
-		default = "SCIENCE_ONE",
+		default = "NONE",
 	},
 	
 	{
@@ -2008,7 +2331,7 @@ configuration_options =
 			{description = "9", data = 9},
 			{description = "10", data = 10},
 		},
-		default = 5,
+		default = 10,
 	},	
 
 	{
@@ -2072,7 +2395,7 @@ configuration_options =
 			{description = "190", data = 190},
 			{description = "200", data = 200},
 		},
-		default = 80,
+		default = 200,
 	},
 
 	{
@@ -2144,7 +2467,7 @@ configuration_options =
 			{description = "9", data = 9},
 			{description = "10", data = 10},
 		},
-		default = 5,
+		default = 10,
 	},	
 }
 
